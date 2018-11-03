@@ -1,0 +1,46 @@
+@if($ads->count() > 0)
+                    <div class="shadow border bg-white mb-3">
+                        <div class="container-fluid">
+                            <h3 class="mb-3">لوحة الاعلانات</h3>
+                            <div id="demo" class="carousel slide " data-ride="carousel">
+
+                                <!-- The slideshow -->
+                                <div class="carousel-inner bg-secondary">
+                                    <div class="carousel-inner">
+                                        @foreach($ads as $ad)
+                                        @if ($loop->first)
+                                        <div class="carousel-item bg-secondary text-dark active">
+                                        @else
+                                        <div class="carousel-item bg-secondary text-dark">
+                                        @endif
+                                            <div class="card border-bottom-0 border-left-0 border-right-0">
+                                                <div class="card-header text-center">{{ $ad->title }}</div>
+                                                <div class="card-body">{{ $ad->body }}</div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                        <!-- Left and right controls -->
+                                        <a class="carousel-control-prev bg-dark w-auto" href="#demo" data-slide="prev">
+                                            <span class="carousel-control-next-icon"></span>
+                                        </a>
+                                        <a class="carousel-control-next bg-dark w-auto" href="#demo" data-slide="next">
+                                            <span class="carousel-control-prev-icon"></span>
+                                        </a>           
+                                    </div>
+                                    
+                                    <!-- Indicators -->
+                                    <ul class="carousel-indicators m-0 p-3 bg-dark position-static row">
+                                        @foreach($ads as $ad)
+                                            @if ($loop->first)
+                                            <li data-target="#demo" data-slide-to="{{ $i=0 }}" class="col m-1 active"></li>
+                                            @else
+                                            <li data-target="#demo" data-slide-to="{{ $i++ }}" class="col m-1"></li>
+                                            @endif
+                                        @endforeach                               
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    @endif

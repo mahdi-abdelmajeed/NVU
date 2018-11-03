@@ -1,0 +1,65 @@
+<md-toolbar ng-controller="toolsCtrl as tool">
+    <div class="md-toolbar-tools" tabIndex="-1"  flex layout="row" layout layout-align="center center">
+        <div>
+            <md-button
+            class="md-fab md-fab-top-right"
+            ng-controller="sidenavCtrl"
+            hide-gt-sm aria-label="Toggle Menu"
+            aria-label="Navigation"
+            ng-click="toggleRight()">
+            <md-icon md-svg-icon="bars"></md-icon>
+            </md-button>
+        </div>
+
+        <md-button class="md-icon-button" aria-label="اشعارات">
+            <md-tooltip md-direction="button">اشعارات</md-tooltip>
+            <md-icon md-svg-icon="bell"> </md-icon>
+        </md-button>
+        <md-button ng-controller="themeCtrl" class="md-icon-button" aria-label="الثيمات"  ng-click="theme()">
+            <md-tooltip md-direction="button">الثيمات</md-tooltip>
+            <md-icon md-svg-icon="fill-drip"></md-icon>
+        </md-button>
+        <md-button ng-href="https://github.com/mahdi-abdelmajeed/NVU/blob/master/frontend" class="md-icon-button" aria-label="عرض مصدر التطبيق">
+          <md-tooltip md-direction="button">عرض مصدر التطبيق</md-tooltip>
+          <md-icon md-svg-icon="brands:github"> </md-icon>
+        </md-button>
+
+        <md-button ng-controller="loginCtrl" class="md-icon-button test-tooltip" ng-click="openDialog($event)" aria-label="name" ng-if="!checkToken">
+          <md-tooltip md-direction="button">تسجيل دخول</md-tooltip>
+          <md-icon md-svg-icon="sign-in-alt"></md-icon>
+        </md-button>
+        <md-button ng-controller="logoutCtrl as ctrl" ng-click="logout($event)" class="md-icon-button test-tooltip text-white"  ng-if="checkToken" aria-label="ctrl.name">
+          <md-tooltip md-direction="button">تسجيل خروج</md-tooltip>
+          <md-icon md-svg-icon="sign-out-alt"></md-icon>
+        </md-button>
+
+        <md-fab-speed-dial ng-hide="hidden" md-direction="down" md-open="more_isOpen"
+            class="md-scale md-fab-top-left" ng-class="{ 'md-hover-full': hover }"
+            ng-mouseenter="more_isOpen=true" ng-mouseleave="more_isOpen=false">
+            <md-fab-trigger>
+                <md-button aria-label="المزيد" class="md-fab">
+                    <md-tooltip md-direction="right" md-visible="tooltipVisible">المزيد</md-tooltip>
+                    <md-icon md-svg-icon="ellipsis-v" aria-label="menu"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+
+            <md-fab-actions>
+                <md-button aria-label="Twitter" class="md-fab md-mini mt-2">
+                    <md-icon md-svg-icon="brands:twitter" aria-label="Twitter"></md-icon>
+                </md-button>
+                <md-button aria-label="Facebook" class="md-fab md-mini mt-2">
+                    <md-icon md-svg-icon="brands:facebook-f" aria-label="Facebook"></md-icon>
+                </md-button>
+                <md-button aria-label="Google Hangout" class="md-fab md-mini mt-2">
+                    <md-icon md-svg-icon="brands:google-plus-g" aria-label="Google Hangout"></md-icon>
+                </md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+
+            
+        <md-button ng-controller="veiwCtrl" id="scrolling" class="md-fab md-fab-bottom-left docs-scroll-fab" ng-click="top()" aria-label="الرجوع للاعلى">
+            <md-tooltip md-direction="top" ng-bind="'الرجوع للاعلى'"></md-tooltip>
+            <md-icon md-svg-icon="angle-up"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>

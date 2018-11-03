@@ -1,0 +1,95 @@
+html {
+  direction: rtl;
+}
+body {
+  font-size: 1rem;
+  font-family: "Roboto,RobotoDraft,Helvetica,Arial,sans-serif";
+}
+.docs-scroll-fab {
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+.menu li {
+  list-style-type: none;
+}
+.nav-header a:hover {
+  color: white!important;
+}
+.menu .menu-toggle, .menu .menu-link, .menu .menu-heading {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: right;
+}
+.menu .icon {
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  color: rgba(0,0,0,0.87);
+  fill: rgba(0,0,0,0.87);
+}
+.menu .icon.toggled{
+  -webkit-transform: rotate(1deg)!important;
+  transform: rotate(1deg)!important;
+}
+md-input-container.md-input-has-value label:not(.md-no-float),md-input-container.md-input-focused label:not(.md-no-float) {
+  -webkit-transform: translate3d(25%,6px,0) scale(.75);
+  transform: translate3d(25%,6px,0) scale(.75);
+}
+md-input-container.md-icon-right>label:not(.md-no-float):not(.md-container-ignore) {
+  width: calc(100% - 36px - 0px);
+}
+.md-fab.docs-scroll-fab {
+  position: fixed !important;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
+}
+.docs-scroll-fab.scrolling {
+  transform: scale(1);
+}
+.parallax {
+  /* The image used */
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+.caption {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+.ellip{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

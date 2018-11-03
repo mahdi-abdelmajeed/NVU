@@ -1,0 +1,12 @@
+<div id="app" md-theme="{{ dynamicTheme }}" md-theme-watch layout="row" class="position-fixed" ng-cloak style="top:0;bottom:0;left:0;right:0">
+    <md-progress-linear ng-controller="progressCtrl" class="position-fixed" style="z-index:250;" md-mode="determinate" value="{{determinateValue}}"></md-progress-linear>
+    <sidenav></sidenav>
+    <div layout="column" tabIndex="-1" role="main" flex>
+        <toolbar></toolbar>
+        <md-content id="veiw">
+            <span flex></span>
+            <ng-view layout-padding></ng-view>
+            <footer></footer>
+        </md-content>
+    </div>
+</div>

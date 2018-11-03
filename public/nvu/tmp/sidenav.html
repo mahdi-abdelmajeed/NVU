@@ -1,0 +1,32 @@
+<md-sidenav
+class="md-sidenav-right" hide-print
+style="width:240px"
+md-component-id="right"
+md-is-locked-open="$mdMedia('gt-sm')"
+md-whiteframe="4">
+    <md-toolbar ng-controller="sidenavCtrl as ctrl">
+        <header class="nav-header text-center text-white">
+            <md-button ng-href="#!/" class="w-100 m-0" aria-label="NVU Logo" ng-click="close()">
+            <img src="img/logo.png" class="mt-3" alt="NVU Logo" style="height: 120px;" />
+                <h1 class="md-heading p-1" ng-bind="appName"></h1>
+            </md-button>
+        </header>
+        
+        <md-content role="navigation" class="menu">
+            <section ng-repeat="section in ctrl.sections" class="parent-list-item text-right" ng-if="section.type != 'hidden' && section.children">
+                <md-subheader style="font-size:1.2rem" class="menu-heading md-subhead md-primary" ng-click="ctrl.isOpen=!ctrl.isOpen" aria-label="child.name">
+                        {{section.name}}
+                        <md-icon class="fa fa-angle-down md-toggle-icon icon toggle"
+                        aria-label="section.name" ng-class="{'toggled' : ctrl.isOpen}"></md-icon>
+                </md-subheader>
+                <ul class="menu-toggle md-primary">
+                    <li ng-repeat="child in section.children" ng-class="{'childActive' : isSectionSelected(child)}"  ng-if="child.type != 'hidden' && child.url" ng-click="close()">
+                        <md-button  style="font-size:1.1rem" class="menu-link pr-4"
+                        ng-href="{{child.type?(child.type=='local'?'#!' + child.url:child.url):(section.type=='local'?'#!' + child.url:child.url)}}"
+                        ng-click="">{{child.name}}</md-button>
+                    </li>
+                </ul>
+            </section>
+        </md-content>
+    </md-toolbar>
+</md-sidenav>

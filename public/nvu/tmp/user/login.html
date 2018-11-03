@@ -1,0 +1,55 @@
+<div flex layout="row" layout-align="center center" layout-margin>
+    <md-dialog flex="60" flex-xs="100" ng-controller="loginCtrl as ctrl" aria-label="ctrl.login.name" style="opacity: 1;">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 ng-bind="name"></h2>
+                <span flex></span>
+                <md-button ng-if="cancel" class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="times" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        
+        <md-dialog-content ng-cloak>
+            <div class="md-dialog-content">
+                <form name="userForm" ng-submit="login($event)">
+                    <div ng-show="Error.message">
+                        <div class="alert alert-info mb-5">
+                            {{Error.message}}
+                        </div>
+                    </div >
+                    <md-input-container class="md-block">
+                        <label ng-bind="ctrl.login.email.name"></label>
+                        <input required type="email" name="email" ng-model="user.email"
+                                minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                        <md-icon md-svg-src="at" class="text-primary"></md-icon>
+                        <div ng-messages="projectForm.email.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']" ng-bind="ctrl.login.email.nuvalid"></div>
+                        </div>
+                    </md-input-container>
+                        
+                    <md-input-container class="md-block">
+                        <label ng-bind="ctrl.login.password.name"></label>
+                        <input type="password" md-maxlength="60" required name="password" ng-model="user.password">
+                        <md-icon md-svg-src="key" class="text-primary"></md-icon>
+                        <div ng-messages="projectForm.password.$error">
+                            <div ng-message="required" ng-bind="ctrl.login.required"></div>
+                            <div ng-message="md-maxlength" ng-bind="ctrl.login.password.min()"></div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block m-0">
+                        <md-switch aria-label="ctrl.login.remember_me.name" class="md-primary m-0" name="special" ng-model="user.remember_me" required>
+                            <span class="p-3" ng-bind="ctrl.login.remember_me.name"></span>
+                        </md-switch>
+                        <div ng-messages="projectForm.special.$error" multiple>
+                            <div ng-message="required" ng-bind="ctrl.login.required"></div>
+                        </div>
+                    </md-input-container>
+
+                    <md-button aria-label="ctrl.login.submit.name" class="w-100" type="submit" ng-bind="ctrl.login.submit.name"></md-button>
+            </form>
+            </div>
+        </md-dialog-content>
+    </md-dialog>
+</div>

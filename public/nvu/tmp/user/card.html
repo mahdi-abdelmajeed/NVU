@@ -1,0 +1,40 @@
+<div ng-cloak>
+    <md-content class="md-padding" layout-xs="column" layout="row"  ng-repeat="x in [1,2,3,4]">
+        <md-card flex-gt-xs="50" ng-repeat="x in [1,2]">
+            <md-card-header>
+                <md-card-avatar>
+                    <img class="md-user-avatar" src="img/users/FB_IMG_1507569184633.jpg"/>
+                </md-card-avatar>
+                <md-card-header-text class="pr-3">
+                    <span class="md-title">User</span>
+                    <span class="md-subhead">subhead</span>
+                </md-card-header-text>
+            </md-card-header>
+            <img ng-src="img/users/FB_IMG_1507569184633.jpg" class="md-card-image" alt="Washed Out">
+            <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">In-card actions</span>
+                <span class="md-subhead">Description</span>
+            </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-card-icon-actions>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                    <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                    <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+                    </md-button>
+                </md-card-icon-actions>
+                <md-button>Action 1</md-button>
+                <md-button>Action 2</md-button>
+            </md-card-actions>
+            <md-card-content>
+                <p>
+                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                    two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                </p>
+            </md-card-content>
+        </md-card>
+    </md-content>
+</div>

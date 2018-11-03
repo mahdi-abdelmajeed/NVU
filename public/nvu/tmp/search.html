@@ -1,0 +1,42 @@
+<div ng-controller="DemoCtrl as ctrl" layout="column" ng-cloak>
+    <md-content class="md-padding">
+        <form ng-submit="$event.preventDefault()" name="searchForm">
+        <p>Use <code>md-autocomplete</code> to search for matches from local or remote data sources.</p>
+        <md-autocomplete
+            md-input-name="autocompleteField"
+            md-input-minlength="1"
+            md-input-maxlength="18"
+            ng-disabled="ctrl.isDisabled"
+            md-no-cache="ctrl.noCache"
+            md-selected-item="ctrl.selectedItem"
+            md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+            md-search-text="ctrl.searchText"
+            md-selected-item-change="ctrl.selectedItemChange(item)"
+            md-items="item in ctrl.querySearch(ctrl.searchText)"
+            md-item-text="item.display"
+            md-floating-label="{{ctrl.label}}"
+            md-require-match="ctrl.requireMatch"
+            placeholder="ctrl.placeholder">
+            <md-item-template>
+            <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+            </md-item-template>
+            <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                <div ng-message="required">You <b>must</b> have a favorite state.</div>
+                <div ng-message="md-require-match">Please select an existing state.</div>
+                <div ng-message="minlength">Your entry is not long enough.</div>
+                <div ng-message="maxlength">Your entry is too long.</div>
+            </div>
+            <md-not-found>
+            No states matching "{{ctrl.searchText}}" were found.
+            <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
+            </md-not-found>
+        </md-autocomplete>
+        
+        <br/>
+        <md-checkbox ng-model="ctrl.simulateQuery"></md-checkbox>
+        <md-checkbox ng-model="ctrl.noCache"></md-checkbox>
+        <!-- <md-checkbox ng-model="ctrl.isDisabled"></md-checkbox> -->
+    
+        </form>
+    </md-content>
+</div>
